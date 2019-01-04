@@ -10,7 +10,7 @@ Game that two player prepare own logic for fliping 64 cards(one at each time) an
 
 * **Contrl** : Only mouse click
 
-* **Genre** : Timeattack, 2D Puzzle, online-competition, programming?
+* **Genre** : Timeattack, 2D Turn-based Puzzle, online-competition, programming?
 
 * **Target user** : people who can build own logic in programming language
 
@@ -20,26 +20,33 @@ Game that two player prepare own logic for fliping 64 cards(one at each time) an
                 represents the score of each player. For example, if 40 cards are flipped to show red side and 24 cards are show blue side,
                 40 score for red player and 24 score for blue player. But if blue player succeed to flip one red card to blue, then
                 39 score for red player and 25 score for blue player. This is stealing other's score, not creating new score.
-                There will be a time limit. Before matching game, player can decide total amount of time. Then player will be matched with
-                other player who choose same amount of time. Three choice that player can make are 1 min, 3 min and 5 min.
-                In this game, player cannot do anything but watch there **logic**. 
+                It is turn-based game, so each player can flip only one card at each turn(at the same time).
+                There will be a time limit. Before matching game, player can decide total amount of time. Then player will be matched                   with other player who choose same amount of time. Three choice that player can make are 1 min, 3 min and 5 min.
+                In this game, player cannot do anything but watch there **logic**. Before matching game, player should make their own 
+                logic to flip the card. This logic will be made with program code like C#. Player can decide which position to start, 
+                how to decide card to flip, and what should do when player's card is flipped by other player, etc.
+                When player made their own logic, player can upload (the code) to thir account. 
+                It is like custom card deck in Hearthstone.
+                For each game, player can choose one logic for that game.
                 
                 -----------------
                 
-* **Features** : 1. There should be a minimum UI as possible, and make it just intuitive. Only UI included is stopwatch, BGM mute button.
-                 2. When press ESC, it shows Resume and Quit.
-                 3. No need to support full screen.
+* **Features** : 1.Basic UI will be look like Hearthstone's. 
+                  Matching with other players, logic management, options will be in main menu.
+                 2. Need server to manage player's account, their logic, and game matching.
+                 3. When game starts, 64 card's start color(Red or Blue) is random.
                  
-* **Music & Sound** : 1. 8bit music is enough. Just make it addictive to player. Aims 20 sec loop BGM.
-                      2. For sound, Only sound needed is cube-rotating sound and tile-covering sound. To make game rhythmical, aim harmony between sound and BGM.
+                 
+* **Music & Sound** : 1. I can't stop thinking of Hearthstone. Their music will also fit to this game.
+                      2. Sound that needed in this game is flipping sound. As turn goes with fixed time(1sec for 1turn), if would be
+                      better if flipping sound is rhythmical.
                       (Drum Kick sound maybe?)
                       
-* **Implements** : 1. Cube that rotate with WASD. 
-                   2. Random map generator. Total map size will be 3 10x10 tiles attached with each other set orthogonally ( Looks like 10x10x10
-                   cube but with 3 sides). Easy way to implement is generate random number of cubes(exactly same as player cube) in each tile.
-                   3. When cube contact with tile, change tile's color and make sound.
-                   4. Stopwatch.
-                   5. When every tile in map covered, end game and record time.
-                   6. Send record to server and manage leaderboard.
+* **Implements** : 1. Main server that manage account and game match.
+                   2. Script that **read** script. This is for recognize player's logic for game.
+                   3. Game scene with 64 cards.
+                   4. Main menu scene with menu selection and logic management. Player can simulate their logic in test map.
+                   5. Rank system for player as motivation.
+
                    
                  
